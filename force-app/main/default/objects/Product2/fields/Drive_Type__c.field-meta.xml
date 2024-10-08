@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Drive_Type__c</fullName>
+    <description>The drive type of the car.</description>
+    <inlineHelpText>Select the drive type of the car.</inlineHelpText>
+    <label>Drive Type</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Drive_Types</valueSetName>
+    </valueSet>
+</CustomField>

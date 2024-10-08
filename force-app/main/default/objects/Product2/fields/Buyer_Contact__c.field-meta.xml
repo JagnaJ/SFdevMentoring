@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Buyer_Contact__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Select the contact who purchased the car.</description>
+    <inlineHelpText>This field allows you to link the buyer of the car to their contact record for better tracking and communication.</inlineHelpText>
+    <label>Buyer Contact</label>
+    <referenceTo>Contact</referenceTo>
+    <relationshipLabel>Cars</relationshipLabel>
+    <relationshipName>PurchasedCars</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

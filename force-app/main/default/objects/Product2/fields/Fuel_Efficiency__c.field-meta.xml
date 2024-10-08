@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fuel_Efficiency__c</fullName>
+    <description>The fuel efficiency of the car in liters per 100 kilometers.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the fuel efficiency of the car (L/100km).</inlineHelpText>
+    <label>Fuel Efficiency</label>
+    <precision>5</precision>
+    <required>true</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

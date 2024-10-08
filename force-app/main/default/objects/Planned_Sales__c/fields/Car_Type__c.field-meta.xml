@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Car_Type__c</fullName>
+    <description>Indicates whether the planned sales are for new or used cars.</description>
+    <inlineHelpText>Select the type of car for the planned sales.</inlineHelpText>
+    <label>Car Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Conditions</valueSetName>
+    </valueSet>
+</CustomField>

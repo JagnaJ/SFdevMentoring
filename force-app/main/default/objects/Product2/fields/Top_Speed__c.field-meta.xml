@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Top_Speed__c</fullName>
+    <description>The top speed of the car in kilometers per hour.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the top speed of the car (Km/h).</inlineHelpText>
+    <label>Top Speed</label>
+    <precision>5</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

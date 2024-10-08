@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Year_of_Manufacture__c</fullName>
+    <description>The year the car was manufactured.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the year when the car was manufactured (e.g., 2024).</inlineHelpText>
+    <label>Year of Manufacture</label>
+    <precision>4</precision>
+    <required>true</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

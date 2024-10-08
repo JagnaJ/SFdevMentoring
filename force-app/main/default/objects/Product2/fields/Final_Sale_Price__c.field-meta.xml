@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Final_Sale_Price__c</fullName>
+    <description>The final price at which the car was sold after any discounts.</description>
+    <inlineHelpText>Enter the final amount paid for the vehicle after adjustments.</inlineHelpText>
+    <label>Final Sale Price</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>
