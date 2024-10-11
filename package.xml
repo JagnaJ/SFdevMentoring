@@ -46,7 +46,7 @@
         <name>ApexTrigger</name>
     </types>
     <types>
-        <members>OpportunityLineItemTriggerHandler</members> 
+        <members>*</members> 
         <name>ApexClass</name>
     </types>
     <types>
