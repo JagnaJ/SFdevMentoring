@@ -41,5 +41,17 @@
         <members>Car_Service__c</members>
         <name>SharingRules</name>
     </types>
+    <types>
+        <members>OpportunityLineItemTrigger</members> 
+        <name>ApexTrigger</name>
+    </types>
+    <types>
+        <members>OpportunityLineItemTriggerHandler</members> 
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>*</members> 
+        <name>ApexTestSuite</name>
+    </types>
     <version>61.0</version>
 </Package>
