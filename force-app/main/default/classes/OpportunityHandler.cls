@@ -1,35 +1,85 @@
 public class OpportunityHandler {
-    public static void handleAfterUpdateOrDelete(Map<Id, Opportunity> oldMap) {
-        Set<Id> closedOpportunityIds = new Set<Id>();
+    public static void handleAfterUpdateOrDelete(List<Opportunity> oldOpportunities) {
+        Set<Opportunity> closedOpportunities = new Set<Opportunity>();
         Set<Id> carTypeIds = new Set<Id>();
 
-        for (Opportunity opp : oldMap.values()) {
+        for (Opportunity opp : oldOpportunities) {
+            // Check if the opportunity is closed
             if (opp.StageName == 'Closed Won' || opp.StageName == 'Closed Lost') {
-                closedOpportunityIds.add(opp.Id);
+                closedOpportunities.add(opp);
             }
 
+            // Update car status based on the opportunity stage
             if (opp.StageName == 'Contract Sent') {
                 updateCarStatus(opp, 'Reserved');
             } else if (opp.StageName == 'Closed Won') {
                 updateCarStatus(opp, 'Sold');
             } else if (opp.StageName == 'Closed Lost') {
                 updateCarStatus(opp, 'Available');
-            } else if (oldMap.get(opp.Id).StageName == 'Contract Sent' && opp.StageName != 'Closed Won' && opp.StageName != 'Closed Lost') {
+            }
+
+            // Check previous stage and update status if necessary
+            Opportunity oldOpp = [SELECT StageName FROM Opportunity WHERE Id = :opp.Id LIMIT 1];
+            if (oldOpp.StageName == 'Contract Sent' && 
+                opp.StageName != 'Closed Won' && opp.StageName != 'Closed Lost') {
                 updateCarStatus(opp, 'Available');
             }
         }
 
+        // Get related OpportunityLineItems for closed opportunities
         List<OpportunityLineItem> oliList = [
             SELECT Product2Id
             FROM OpportunityLineItem
-            WHERE OpportunityId IN :closedOpportunityIds
+            WHERE OpportunityId IN :closedOpportunities
         ];
 
         for (OpportunityLineItem oli : oliList) {
             carTypeIds.add(oli.Product2Id);
         }
 
-        validateCarStatusForOpportunities(carTypeIds, closedOpportunityIds);
+        validateCarStatusForOpportunities(carTypeIds, closedOpportunities);
+    }
+
+    public static void handleOpportunityUpdate(List<Opportunity> newOpportunities, Map<Id, Opportunity> oldOpportunities) {
+        Set<Opportunity> closedOpportunities = new Set<Opportunity>();
+        Set<Id> carTypeIds = new Set<Id>();
+
+        for (Opportunity newOpp : newOpportunities) {
+            Opportunity oldOpp = oldOpportunities.get(newOpp.Id);
+            
+            // Check if the opportunity is closed
+            if (newOpp.StageName == 'Closed Won' || newOpp.StageName == 'Closed Lost') {
+                closedOpportunities.add(newOpp);
+            }
+
+            // Update car status based on the opportunity stage
+            if (newOpp.StageName == 'Contract Sent') {
+                updateCarStatus(newOpp, 'Reserved');
+            } else if (newOpp.StageName == 'Closed Won') {
+                updateCarStatus(newOpp, 'Sold');
+            } else if (newOpp.StageName == 'Closed Lost') {
+                updateCarStatus(newOpp, 'Available');
+            }
+
+            // Check previous stage and update status if necessary
+            if (oldOpp != null && oldOpp.StageName == 'Contract Sent' && 
+                newOpp.StageName != 'Closed Won' && newOpp.StageName != 'Closed Lost') {
+                updateCarStatus(newOpp, 'Available');
+            }
+        }
+
+        // Get related OpportunityLineItems for closed opportunities
+        List<OpportunityLineItem> oliList = [
+            SELECT Product2Id
+            FROM OpportunityLineItem
+            WHERE OpportunityId IN :closedOpportunities
+        ];
+
+        for (OpportunityLineItem oli : oliList) {
+            carTypeIds.add(oli.Product2Id);
+        }
+
+        validateCarStatusForOpportunities(carTypeIds, closedOpportunities);
     }
 
     private static void updateCarStatus(Opportunity opp, String status) {
@@ -48,7 +98,7 @@ public class OpportunityHandler {
         }
     }
 
-    private static void validateCarStatusForOpportunities(Set<Id> carTypeIds, Set<Id> closedOpportunityIds) {
+    private static void validateCarStatusForOpportunities(Set<Id> carTypeIds, Set<Opportunity> closedOpportunities) {
         List<OpportunityLineItem> reservedOrSoldOLIs = [
             SELECT Id, Product2Id, OpportunityId 
             FROM OpportunityLineItem 
