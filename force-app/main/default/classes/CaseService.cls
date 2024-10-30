@@ -4,9 +4,9 @@ public with sharing class CaseService {
         newCase.SuppliedName = name;
         newCase.SuppliedEmail = email;
         newCase.SuppliedPhone = phone;
-        newCase.CarBrand__c = carBrand;
-        newCase.CarModel__c = carModel;
-        newCase.CarVinCode__c = vinCode;
+        newCase.CarBrand__c = carBrand; 
+        newCase.Car_Model__c = carModel; 
+        newCase.Car_VIN_Code__c = vinCode; 
         newCase.Subject = reason;
         newCase.Description = description;
         newCase.Origin = 'Web Car Service';

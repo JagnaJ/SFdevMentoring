@@ -141,5 +141,3 @@ public with sharing class PlannedSalesHandler {
         }
     }
 }
-
-

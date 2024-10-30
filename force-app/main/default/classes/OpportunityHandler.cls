@@ -4,12 +4,10 @@ public class OpportunityHandler {
         Set<Id> carTypeIds = new Set<Id>();
 
         for (Opportunity opp : oldOpportunities) {
-            // Check if the opportunity is closed
             if (opp.StageName == 'Closed Won' || opp.StageName == 'Closed Lost') {
                 closedOpportunities.add(opp);
             }
 
-            // Update car status based on the opportunity stage
             if (opp.StageName == 'Contract Sent') {
                 updateCarStatus(opp, 'Reserved');
             } else if (opp.StageName == 'Closed Won') {
@@ -18,7 +16,6 @@ public class OpportunityHandler {
                 updateCarStatus(opp, 'Available');
             }
 
-            // Check previous stage and update status if necessary
             Opportunity oldOpp = [SELECT StageName FROM Opportunity WHERE Id = :opp.Id LIMIT 1];
             if (oldOpp.StageName == 'Contract Sent' && 
                 opp.StageName != 'Closed Won' && opp.StageName != 'Closed Lost') {
@@ -26,7 +23,6 @@ public class OpportunityHandler {
             }
         }
 
-        // Get related OpportunityLineItems for closed opportunities
         List<OpportunityLineItem> oliList = [
             SELECT Product2Id
             FROM OpportunityLineItem
@@ -47,12 +43,10 @@ public class OpportunityHandler {
         for (Opportunity newOpp : newOpportunities) {
             Opportunity oldOpp = oldOpportunities.get(newOpp.Id);
             
-            // Check if the opportunity is closed
             if (newOpp.StageName == 'Closed Won' || newOpp.StageName == 'Closed Lost') {
                 closedOpportunities.add(newOpp);
             }
 
-            // Update car status based on the opportunity stage
             if (newOpp.StageName == 'Contract Sent') {
                 updateCarStatus(newOpp, 'Reserved');
             } else if (newOpp.StageName == 'Closed Won') {
@@ -61,14 +55,12 @@ public class OpportunityHandler {
                 updateCarStatus(newOpp, 'Available');
             }
 
-            // Check previous stage and update status if necessary
             if (oldOpp != null && oldOpp.StageName == 'Contract Sent' && 
                 newOpp.StageName != 'Closed Won' && newOpp.StageName != 'Closed Lost') {
                 updateCarStatus(newOpp, 'Available');
             }
         }
 
-        // Get related OpportunityLineItems for closed opportunities
         List<OpportunityLineItem> oliList = [
             SELECT Product2Id
             FROM OpportunityLineItem
