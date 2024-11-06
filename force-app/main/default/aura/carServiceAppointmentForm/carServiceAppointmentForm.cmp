@@ -1,0 +1,35 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="WebToCaseController">
+    <aura:attribute name="statusMessage" type="String" access="public" />
+
+    <aura:if isTrue="{!not(empty(v.statusMessage))}">
+        <div class="slds-text-heading_medium">{!v.statusMessage}</div>
+    </aura:if>
+
+    <form onsubmit="{!c.handleSubmit}">
+        <label for="name">Contact Name</label>
+        <lightning:input id="name" maxlength="80" name="name" type="text" required="true"/>
+
+        <label for="email">Email</label>
+        <lightning:input id="email" maxlength="80" name="email" type="email" required="true"/>
+
+        <label for="phone">Phone</label>
+        <lightning:input id="phone" maxlength="40" name="phone" type="tel" required="true"/>
+
+        <label for="subject">Subject</label>
+        <lightning:input id="subject" maxlength="80" name="subject" required="true"/>
+
+        <label for="description">Description</label>
+        <lightning:textarea id="description" name="description"></lightning:textarea>
+
+        <label for="carBrand">Car Brand</label>
+        <lightning:input id="carBrand" maxlength="80" name="carBrand" required="true"/>
+
+        <label for="carModel">Car Model</label>
+        <lightning:input id="carModel" maxlength="50" name="carModel"/>
+
+        <label for="carVin">Car VIN Code</label>
+        <lightning:input id="carVin" maxlength="17" name="carVin" required="true"/>
+
+        <lightning:button type="submit" name="submit" label="Submit"/>
+    </form>
+</aura:component>
