@@ -5,26 +5,19 @@
         <name>CustomApplication</name>
     </types>
     <types>
-        <members>Opportunity</members>
-        <members>Account</members>
-        <members>Car__c</members>
-        <members>Feature__c</members>
-        <members>Warranty__c</members>
-        <members>Car_Service__c</members>
-        <members>Lead__c</members>
+        <members>*</members>
         <name>CustomObject</name>
     </types>
     <types>
-        <members>Opportunity.StageName</members>
+        <members>*</members>
         <name>CustomField</name>
     </types>
     <types>
-        <members>ValidationRule_Opportunity_Close_Won</members>
-        <members>ValidationRule_Planned_Sales</members>
+        <members>*</members>
         <name>ValidationRule</name>
     </types>
     <types>
-        <members>Planned_Sales__c</members>
+        <members>*</members>
         <name>Flow</name>
     </types>
     <types>
@@ -34,12 +27,20 @@
         <name>Role</name>
     </types>
     <types>
-        <members>Account</members>
-        <members>Opportunity</members>
-        <members>Car__c</members>
-        <members>Warranty__c</members>
-        <members>Car_Service__c</members>
+        <members>*</members>
         <name>SharingRules</name>
+    </types>
+    <types>
+        <members>*</members> 
+        <name>ApexTrigger</name>
+    </types>
+    <types>
+        <members>*</members> 
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>*</members> 
+        <name>ApexTestSuite</name>
     </types>
     <version>61.0</version>
 </Package>

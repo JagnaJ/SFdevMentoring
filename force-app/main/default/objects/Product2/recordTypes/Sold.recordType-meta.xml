@@ -5,6 +5,25 @@
     <description>Cars that have been sold</description>
     <label>Sold</label>
     <picklistValues>
+        <picklist>Car_Status__c</picklist>
+        <values>
+            <fullName>Available</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On Hold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reserved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sold</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
         <picklist>Condition__c</picklist>
         <values>
             <fullName>New</fullName>
