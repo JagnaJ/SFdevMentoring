@@ -1,0 +1,38 @@
+<template>
+    <div class="slds-m-around_medium">
+        <h1 class="slds-text-heading_large">Compare Cars Side-by-Side</h1>
+        <lightning-button label="Add Vehicle" variant="brand" onclick={openModal}></lightning-button>
+
+        <template if:true={isModalOpen}>
+            <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_neutral" title="Close" onclick={closeModal}>
+                            <lightning-icon icon-name="utility:close" alternative-text="close" size="small"></lightning-icon>
+                        </button>
+                        <h2 class="slds-text-heading_medium">Add Vehicle</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium">
+                        <lightning-combobox name="selectedYear" label="Year" options={yearOptions} onchange={handleSelection}></lightning-combobox>
+                        <lightning-combobox name="selectedBrand" label="Brand" options={brandOptions} onchange={handleSelection}></lightning-combobox>
+                        <lightning-combobox name="selectedModel" label="Model" options={modelOptions} onchange={handleSelection}></lightning-combobox>
+                        <lightning-combobox name="selectedDriveType" label="Drive Type" options={driveTypeOptions} onchange={handleSelection}></lightning-combobox>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning-button variant="neutral" label="Cancel" onclick={closeModal}></lightning-button>
+                        <lightning-button variant="brand" label="Add Vehicle" onclick={addSelectedCar}></lightning-button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+
+        <div class="slds-grid slds-wrap">
+            <template for:each={formattedCarDetails} for:item="car">
+                <div key={car.id} class="slds-col slds-size_1-of-4">
+                    <c-car-comparison-card car={car} onremovecar={handleRemoveCar}></c-car-comparison-card>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

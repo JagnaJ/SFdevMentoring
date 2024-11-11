@@ -42,5 +42,9 @@
         <members>*</members> 
         <name>ApexTestSuite</name>
     </types>
+    <types>
+        <members>Car_Comparison_Setting__mdt</members>
+        <name>CustomMetadata</name>
+    </types>
     <version>61.0</version>
 </Package>

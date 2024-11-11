@@ -1,6 +1,7 @@
-const { jestConfig } = require('@salesforce/sfdx-lwc-jest/config');
-
 module.exports = {
-    ...jestConfig,
-    modulePathIgnorePatterns: ['<rootDir>/.localdevserver']
+    preset: '@salesforce/sfdx-lwc-jest',
+    moduleFileExtensions: ['js', 'html'],
+    moduleNameMapper: {
+        '^@salesforce/apex$': '@salesforce/sfdx-lwc-jest'
+    }
 };
