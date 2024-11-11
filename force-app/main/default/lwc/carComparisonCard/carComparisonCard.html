@@ -1,0 +1,16 @@
+<template>
+    <div class="slds-box slds-theme_default slds-m-around_small">
+        <h3>{car.name}</h3>
+        <p>VIN: {car.vinNumber}</p>
+        <p>Year: {car.yearOfManufacture}</p>
+        <p>Brand: {car.brand}</p>
+        <p>Model: {car.model}</p>
+        <p>Drive Type: {car.driveType}</p>
+        <p>Fuel Type: {car.fuelType}</p>
+        <p>Transmission Type: {car.transmissionType}</p>
+        <template for:each={car.specifications} for:item="spec">
+            <p key={spec.name}>{spec.name}: {spec.value}</p>
+        </template>
+        <lightning-button label="Remove" onclick={handleRemove}></lightning-button>
+    </div>
+</template>

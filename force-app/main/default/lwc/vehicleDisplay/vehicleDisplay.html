@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="Vehicle Information" icon-name="standard:vehicle">
+        <div class="slds-p-around_medium">
+            <lightning-button label="Get Vehicle Details" onclick={handleGetVehicle} class="slds-m-bottom_small"></lightning-button>
+            
+            <template if:true={vehicle.make}>
+                <p><strong>Make:</strong> {vehicle.make}</p>
+                <p><strong>Model:</strong> {vehicle.model}</p>
+                <p><strong>Year:</strong> {vehicle.year}</p>
+                <p><strong>Location:</strong> {locationText}</p>
+
+                <template if:true={vehicle.location}>
+                    <lightning-map 
+                        map-markers={mapMarkers}
+                        zoom-level="10"
+                        center={mapCenter}
+                        class="slds-m-top_medium">
+                    </lightning-map>
+                </template>
+            </template>
+
+            <template if:true={error}>
+                <p class="slds-text-color_error">{error}</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

@@ -21,6 +21,70 @@
     <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
     <label>Dream Cars</label>
     <navType>Standard</navType>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Car_Service_Record_Page1</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Car_Service__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Custom: Sales Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Car_Service_Record_Page1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Car_Service__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Custom: Sales Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Car_Service_Record_Page1</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Car_Service__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Sales User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Car_Service_Record_Page1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Car_Service__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Sales User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Car_Service_Record_Page1</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Car_Service__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Sales Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Car_Service_Record_Page1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Car_Service__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Sales Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Car_Service_Record_Page1</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Car_Service__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Car_Service_Record_Page1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Car_Service__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
     <tabs>standard-Account</tabs>
     <tabs>standard-Lead</tabs>
     <tabs>standard-Opportunity</tabs>
